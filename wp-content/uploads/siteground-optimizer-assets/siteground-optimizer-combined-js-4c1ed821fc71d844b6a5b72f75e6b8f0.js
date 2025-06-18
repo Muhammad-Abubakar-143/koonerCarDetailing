@@ -23918,7 +23918,8 @@ console.log("Container ready");
               (this.options.controls = this.options.controls.replace("xl", "")),
             (("audio" == this.options.type && "" == this.options.controls) ||
               null == this.options.controls) &&
-              this.el.classList.add("sr7-hidden-audio"),
+              this.el.classList.remove("sr7-hidden-audio");
+this.container.style.visibility = "visible";,
             1 == this.options.mute && e.setAttribute("muted", ""),
             1 == this.options.loop && e.setAttribute("loop", ""),
             this.container.appendChild(e),
@@ -24036,8 +24037,7 @@ console.log("Container ready");
         }
         play() {
           this.player &&
-            (((!_tpt.userInteracted && this.options.autoPlay) ||
-              this.options.mute) &&
+            (((!_tpt.userInteracted && this.options.autoPlay) || this.options.mute) &&
               (this.player.muted = !0),
             this.ensureReadyAndExecute(() => {
               this.player.play().catch((e) => {
