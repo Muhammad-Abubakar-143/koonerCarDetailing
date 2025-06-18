@@ -23439,7 +23439,10 @@ Please note:
         async add() {
           await SR7.loadVideoAPI("youtube");
           try {
-            await this.waitForContainer(this.containerId);
+            console.log("Waiting for container:", this.containerId);
+await this.waitForContainer(this.containerId);
+console.log("Container ready");
+
           } catch (e) {
             return void console.error(e);
           }
